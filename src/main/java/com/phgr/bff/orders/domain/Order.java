@@ -18,19 +18,19 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(name = "Id", description = "Auto-generated order identifier")
+    @Schema(name = "Id", description = "Identificador de pedido gerado automaticamente")
     private Long id;
 
-    @Schema(name = "Product", description = "Product name")
+    @Schema(name = "Product", description = "Nome do produto")
     private String product;
 
-    @Schema(name = "Quantity", description = "Quantity of product to be ordered")
+    @Schema(name = "Quantity", description = "Quantidade de produtos do pedido")
     private Integer quantity;
 
-    @Schema(name = "Price", description = "Product price per unit")
+    @Schema(name = "Price", description = "Preço do produto por unidade")
     private Double price;
 
-    @Schema(name = "Status", description = "Order payment status")
+    @Schema(name = "Status", description = "Status de pagamento do pedido")
     private String status;
 }
 
