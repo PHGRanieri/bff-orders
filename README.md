@@ -1,6 +1,6 @@
 # Order Service
 
-Este microserviço simula o processamento de pagamentos. Ele publica eventos de confirmação de pagamento via Kafka para o bff-payments.
+Este microserviço é responsável por criar, listar e atualizar pedidos de um ecommerce. Ele persiste os dados em um banco de dados relacional MySQL e recebe eventos de confirmação ou cancelamento de pedidos via mensageria utilizando Kafka.
 
 ## Tecnologias Utilizadas
 
