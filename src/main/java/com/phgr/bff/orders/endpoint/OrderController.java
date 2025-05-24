@@ -3,7 +3,7 @@ package com.phgr.bff.orders.endpoint;
 import com.phgr.bff.orders.domain.entity.Order;
 import com.phgr.bff.orders.domain.mapper.OrderMapper;
 import com.phgr.bff.orders.domain.response.OrderResponse;
-import com.phgr.bff.orders.service.OrderService;
+import com.phgr.bff.orders.service.impl.OrderServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderController {
 
-    private final OrderService service;
+    private final OrderServiceImpl service;
     private final OrderMapper mapper;
 
     @PostMapping

@@ -2,15 +2,15 @@ package com.phgr.bff.orders.config;
 
 import com.phgr.bff.orders.domain.PaymentEvent;
 import com.phgr.bff.orders.service.OrderService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class PaymentEventListener {
 
-    @Autowired
-    private OrderService orderService; // ou OrderRepository se for direto
+    private final OrderService orderService;
 
     @KafkaListener(topics = "${topics.payment}", groupId = "order-group", containerFactory = "kafkaListenerContainerFactory")
     public void consumePaymentEvent(PaymentEvent event) {
