@@ -1,32 +1,17 @@
 package com.phgr.bff.orders.service;
 
-import com.phgr.bff.orders.domain.Order;
-import com.phgr.bff.orders.repository.OrderRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import com.phgr.bff.orders.domain.dto.OrderDto;
+import com.phgr.bff.orders.domain.entity.Order;
+import com.phgr.bff.orders.domain.enums.PaymentStatusEnum;
 
 import java.util.List;
 
-@Service
-@RequiredArgsConstructor
-public class OrderService {
+public interface OrderService {
 
-    private final OrderRepository repository;
+    OrderDto createOrder(Order order);
 
-    public Order createOrder(Order order) {
-        order.setStatus("PENDING");
-        return repository.save(order);
-    }
+    List<OrderDto> getAllOrders();
 
-    public List<Order> getAllOrders() {
-        return repository.findAll();
-    }
-
-    public void updateOrderStatus(Long orderId, String status) {
-        Order order = repository.findById(orderId)
-                .orElseThrow(() -> new RuntimeException("Order not found"));
-        order.setStatus(status);
-        repository.save(order);
-    }
+    void updateOrderStatus(Long orderId, PaymentStatusEnum status);
 
 }

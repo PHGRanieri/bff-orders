@@ -1,5 +1,6 @@
-package com.phgr.bff.orders.domain;
+package com.phgr.bff.orders.domain.entity;
 
+import com.phgr.bff.orders.domain.enums.PaymentStatusEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -18,19 +19,11 @@ public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Schema(name = "Id", description = "Identificador de pedido gerado automaticamente")
     private Long id;
-
-    @Schema(name = "Product", description = "Nome do produto")
     private String product;
-
-    @Schema(name = "Quantity", description = "Quantidade de produtos do pedido")
     private Integer quantity;
-
-    @Schema(name = "Price", description = "Preço do produto por unidade")
     private Double price;
+    private PaymentStatusEnum status;
 
-    @Schema(name = "Status", description = "Status de pagamento do pedido")
-    private String status;
 }
 
